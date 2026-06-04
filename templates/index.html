@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyHub - Student Portal</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="nav-brand">📚 StudyHub</div>
+  <div class="nav-links">
+    <a href="/" class="active">Dashboard</a>
+    <a href="/courses">Courses</a>
+    <a href="/assignments">Assignments</a>
+    <a href="/grades">Grades</a>
+    <a href="/admin">Admin</a>
+  </div>
+<div class="nav-user">
+    <span id="userName">Student</span>
+    <button onclick="logout()" class="btn btn-sm">Logout</button>
+  </div>
+</nav>
+
+<main class="container">
+  <section class="hero">
+    <h1>Welcome back, <span id="welcomeName">Student</span>! 👋</h1>
+    <p>Track your courses, submit assignments, and check grades — all in one place.</p>
+  </section>
+
+  <section class="stats-grid">
+    <div class="stat-card"><h3>📖 Enrolled Courses</h3><p id="statCourses">0</p></div>
+    <div class="stat-card"><h3>📝 Pending Assignments</h3><p id="statPending">0</p></div>
+    <div class="stat-card"><h3>✅ Completed</h3><p id="statCompleted">0</p></div>
+    <div class="stat-card"><h3>📊 Average Grade</h3><p id="statGrade">—</p></div>
+  </section>
+
+  <section class="section">
+    <h2>📖 My Courses</h2>
+    <div id="coursesList" class="card-grid"></div>
+  </section>
+
+  <section class="section">
+    <h2>📝 Recent Assignments</h2>
+    <div id="assignmentsList" class="list"></div>
+  </section>
+</main>
+
+<!-- Admin Panel Modal -->
+<div id="adminModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeAdmin()">&times;</span>
+    <h2>⚙️ Admin Panel</h2>
+    <div class="admin-tabs">
+      <button class="tab-btn active" onclick="showTab('users')">👥 Users</button>
+      <button class="tab-btn" onclick="showTab('coursesTab')">📖 Courses</button>
+      <button class="tab-btn" onclick="showTab('assignTab')">📝 Assignments</button>
+      <button class="tab-btn" onclick="showTab('stats')">📊 Stats</button>
+    </div>
+    <div id="adminContent"></div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
